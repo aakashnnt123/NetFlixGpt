@@ -1,10 +1,15 @@
 import React, { useState ,useRef } from 'react'
 import Header from './Header';
 import checkValidData from '../Utils/validate';
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from '../Utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [IsSignInForm, setIsSignInForm] = useState(true);
   const [errormessage , seterrormessage] = useState(null);
+
+   const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!IsSignInForm);
@@ -16,12 +21,51 @@ function Login() {
 
   const handleButtonClick = () => {
     //Validate the form data..
-    console.log(email.current.value);
-    console.log(password.current.value)
+
+    // console.log(email.current.value);
+    // console.log(password.current.value)
 
     const response = checkValidData(email.current.value , password.current.value);
-    console.log(response);
+    // console.log(response);
     seterrormessage(response);
+
+    if(response)return;
+
+    // SIGNIN/SIGNUP Logic..
+    if(!IsSignInForm){
+      // Signup logic..
+      createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user);
+    navigate("/browse")
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrormessage(errorCode+"-"+errorMessage);
+    // ..
+  });
+
+    }
+    else{
+      // SignIn logic..
+      signInWithEmailAndPassword(auth,email.current.value , password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    navigate("/browse");
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrormessage(errorCode+"-"+errorMessage);
+  });
+    }
 
   };
 
