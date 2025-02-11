@@ -3,8 +3,8 @@ import Header from './Header';
 import checkValidData from '../Utils/validate';
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword,updateProfile} from "firebase/auth";
 import {auth} from '../Utils/firebase';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import {useNavigate } from 'react-router-dom';
+import {useDispatch } from 'react-redux';
 import {addUser} from '../Utils/UserSlice';
 
 function Login() {
