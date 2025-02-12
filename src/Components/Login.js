@@ -46,14 +46,14 @@ updateProfile(user, {
              displayName,photoURL
               } = auth.currentUser;
            dispatch(addUser({uid:uid , email:email, displayName:displayName , photoURL:photoURL}));
-           console.log(user);
+          //  console.log(user);
           
 }).catch((error) => {
   const errorCode = error.code;
   const errorMessage = error.message;
   seterrormessage(errorCode+"-"+errorMessage);
 });
-    console.log(user);
+    // console.log(user);
   })
   .catch((error) => {
     const errorCode = error.code;

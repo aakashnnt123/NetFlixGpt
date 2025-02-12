@@ -31,7 +31,7 @@ useEffect(()=>{
           displayName,photoURL
            } = user;
         dispatch(addUser({uid:uid , email:email, displayName:displayName , photoURL:photoURL}));
-        console.log(user);
+        // console.log(user);
          navigate("/browse")
       } else {
         // User is signed out

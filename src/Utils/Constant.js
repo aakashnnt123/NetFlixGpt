@@ -3,4 +3,10 @@ export const Main_Logo = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_
 
 export const Git_Url = "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" ;
 
-// export const Git_Url = "https://avatars.githubusercontent.com/u/110731220?v=4" ;
+export const API_OPTIONS =  {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOGUzN2YzMTRhNGQxYzZjNjJmMzM0NDQyYjlkYzNiMSIsIm5iZiI6MTczOTM4MzYwMC4wMjU5OTk4LCJzdWIiOiI2N2FjZTMzMDIzNzViZmM1ZjZkMGE4OTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.plVzjNJ7GsABY8PPF86Uvk9-bVqy1SfvbY6ZluRXtGI'
+  }
+};
