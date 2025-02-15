@@ -51,14 +51,25 @@ useEffect(()=>{
     alt="logo"
   />
   
-  {userSelect && <div className="flex items-center space-x-4">
-    <img 
-      className="w-12 h-12 rounded-md border-red-50"
-      src={userSelect.photoURL}
-      alt="usericon"
-    />
-    <button  onClick ={handleSignOut}className="bg-red-600 text-white px-4 py-2 rounded">Sign Out</button>
-  </div>}
+  {userSelect && (
+  <div className="flex items-center space-x-4 bg-gray-100 p-2 rounded-md shadow-md">
+    <div className="flex items-center space-x-3">
+      <img 
+        className="w-12 h-12 rounded-full border-2 border-gray-300"
+        src={userSelect.photoURL}
+        alt="usericon"
+      />
+      <span className="text-lg font-semibold">{userSelect.displayName}</span>
+    </div>
+    <button 
+      onClick={handleSignOut} 
+      className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+    >
+      Sign Out
+    </button>
+  </div>
+)}
+
 </div>
 
     
