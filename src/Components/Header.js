@@ -45,32 +45,33 @@ useEffect(()=>{
 
   return (
     <div className="absolute z-20 flex justify-between w-full px-4 items-center">
-  <img 
-    className="w-44 py-2 bg-gradient-to-b from-black"
-    src={Main_Logo}
-    alt="logo"
-  />
-  
-  {userSelect && (
-  <div className="flex items-center space-x-4 bg-gray-100 p-2 rounded-md shadow-md">
-    <div className="flex items-center space-x-3">
-      <img 
-        className="w-12 h-12 rounded-full border-2 border-gray-300"
-        src={userSelect.photoURL}
-        alt="usericon"
-      />
-      <span className="text-lg font-semibold">{userSelect.displayName}</span>
-    </div>
-    <button 
-      onClick={handleSignOut} 
-      className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
-    >
-      Sign Out
-    </button>
+    <img 
+      className="w-36 bg-gradient-to-b from-black"
+      src={Main_Logo}
+      alt="logo"
+    />
+    
+    {/* User Profile & Logout */}
+    {userSelect && (
+      <div className="flex items-center space-x-4 bg-gray-100 p-2 rounded-md shadow-lg">
+        <div className="flex items-center space-x-3">
+          <img 
+            className="w-12 h-12 rounded-full border-2 border-gray-300"
+            src={userSelect.photoURL}
+            alt="User Icon"
+          />
+          <span className="text-lg font-semibold">{userSelect.displayName}</span>
+        </div>
+        <button 
+          onClick={handleSignOut} 
+          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+        >
+          Sign Out
+        </button>
+      </div>
+    )}
   </div>
-)}
-
-</div>
+  
 
     
   )
