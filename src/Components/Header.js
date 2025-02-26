@@ -38,7 +38,7 @@ useEffect(()=>{
         dispatch(removeUser());
         navigate("/")
       }
-    });
+    },[]);
 
   },[navigate,dispatch]);
 
