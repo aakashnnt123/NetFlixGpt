@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/UserSlice";
 import { Main_Logo } from "../Utils/Constant";
 import { toggleGptSearchView } from "../Utils/GptSlice";
+import { SUPPORTED_LANGUAGES } from "../Utils/Constant";
+import { changeLanguage } from "../Utils/languageSlice";
 
 const Header = () => {
   const userSelect = useSelector((store) => store.user);
@@ -22,6 +24,10 @@ const Header = () => {
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView());
   };
+
+  const handleLanguageChange = (e)=>{
+     dispatch(changeLanguage(e.target.value));
+  }
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -46,11 +52,15 @@ const Header = () => {
 
       {/* User Profile & Logout */}
       {userSelect && (
-        <div className="flex items-center space-x-6 bg-gray-100 p-2 rounded-md shadow-lg mt-3 opacity-90">
+        <div className="flex items-center space-x-6 text-white p-2 rounded-md shadow-lg mt-3 opacity-90">
+            {showGptSearch && <select className="bg-black p-2" onChange={handleLanguageChange}>
+              { SUPPORTED_LANGUAGES.map((lang) => <option key ={lang.identifier} value={lang.identifier}>{lang.name}</option> )}
+            
+            </select>}
           {/* GPT-Search Button */}
           <button
             onClick={handleGptSearch}
-            className="bg-slate-500 text-black px-4 py-2 rounded-md hover:bg-slate-700 transition font-semibold"
+            className="bg-purple-500 text-black px-4 py-2 rounded-md hover:bg-purple-700 transition font-semibold"
           >
            {showGptSearch ? "Movies🎬" : "GPT-Search🔍"} 
           </button>
