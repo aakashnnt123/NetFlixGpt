@@ -1,25 +1,24 @@
-import { API_OPTIONS } from '../Utils/Constant'
+import { API_OPTIONS } from '../Utils/Constant';
 import { addPopularMovies } from '../Utils/MovieSlice';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-const usePopularMovies = ()=>{
-  
+const usePopularMovies = () => {
   const dispatch = useDispatch();
+  const popularMovies = useSelector(store => store.movies.popularMovies);
 
-  const popularMovies =useSelector(store => store.movies.popularMovies);
+  useEffect(() => {
+    if (popularMovies) return;
 
-  const getPopularMovies = async()=>{
-    const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1' , API_OPTIONS);
-
+    const fetchMovies = async () => {
+      const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', API_OPTIONS);
       const json = await data.json();
-      // console.log(json.results);
       dispatch(addPopularMovies(json.results));
-  };
+    };
 
-  useEffect(()=>{
-      !popularMovies && getPopularMovies();
-  },[]);
-}
+    fetchMovies();
+  }, [dispatch, popularMovies]); // ✅ Correct dependencies
+
+};
 
 export default usePopularMovies;
