@@ -8,7 +8,7 @@ import {addUser} from '../Utils/UserSlice';
 import { Git_Url } from '../Utils/Constant';
 import { BG_URL } from '../Utils/Constant';
 
-function login() {
+function Login() {
   const [IsSignInForm, setIsSignInForm] = useState(true);
   const [errormessage , seterrormessage] = useState(null);
 
