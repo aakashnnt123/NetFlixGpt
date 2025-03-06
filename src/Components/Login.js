@@ -8,11 +8,11 @@ import {addUser} from '../Utils/UserSlice';
 import { Git_Url } from '../Utils/Constant';
 import { BG_URL } from '../Utils/Constant';
 
-function Login() {
+function login() {
   const [IsSignInForm, setIsSignInForm] = useState(true);
   const [errormessage , seterrormessage] = useState(null);
 
-   const dispatch = useDispatch();
+   const dispatch =  useDispatch();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!IsSignInForm);
