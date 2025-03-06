@@ -18,13 +18,16 @@ const useMovieTrailer = (movieId) => {
       if (!response.ok) throw new Error("Failed to fetch movie trailers");
 
       const json = await response.json();
-      console.log("API Response:", json); // Debugging
+      // console.log("API Response:", json);
 
       if (json.results.length > 0) {
-        const filteredData = json.results.filter((video) => video.type === "Trailer");
+        const filteredData = json.results.filter(
+          (video) => video.type === "Trailer"
+        );
+
         const trailer = filteredData.length ? filteredData[0] : json.results[0];
 
-        console.log("Trailer Found:", trailer);
+        // console.log("Trailer Found:", trailer);
         dispatch(addMovieTrailer(trailer));
       } else {
         console.warn("No trailer found for this movie.");

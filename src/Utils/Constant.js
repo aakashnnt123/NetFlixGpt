@@ -3,12 +3,14 @@ export const Main_Logo = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_
 
 export const Git_Url = "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" ;
 
+
+
 export const API_OPTIONS =  {
   method: 'GET',
   headers: {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOGUzN2YzMTRhNGQxYzZjNjJmMzM0NDQyYjlkYzNiMSIsIm5iZiI6MTczOTM4MzYwMC4wMjU5OTk4LCJzdWIiOiI2N2FjZTMzMDIzNzViZmM1ZjZkMGE4OTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.plVzjNJ7GsABY8PPF86Uvk9-bVqy1SfvbY6ZluRXtGI'
-  }
+  },
 };
 
 export const BG_URL= "https://assets.nflxext.com/ffe/siteui/vlv3/e3e9c31f-aa15-4a8f-8059-04f01e6b8629/web/IN-en-20250113-TRIFECTA-perspective_febfa442-23d9-45f3-937e-72f8b971f7a9_large.jpg";
@@ -20,3 +22,5 @@ export const SUPPORTED_LANGUAGES = [
   {identifier : "hindi" , name : "Hindi"},
   {identifier : "spanish" , name : "Spanish"}
 ];
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

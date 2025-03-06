@@ -52,7 +52,7 @@ const Header = () => {
 
       {/* User Profile & Logout */}
       {userSelect && (
-        <div className="flex items-center space-x-6 text-white p-2 rounded-md shadow-lg mt-3 opacity-90">
+        <div className="flex items-center space-x-6 text-white p-2 rounded-md shadow-lg mt-3 opacity-90 bg-black">
             {showGptSearch && <select className="bg-black p-2" onChange={handleLanguageChange}>
               { SUPPORTED_LANGUAGES.map((lang) => <option key ={lang.identifier} value={lang.identifier}>{lang.name}</option> )}
             
